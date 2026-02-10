@@ -1,0 +1,68 @@
+:root {
+  font-family: monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.logo {
+  filter: invert(1) grayscale(100%) drop-shadow(0 0 10rem black);
+  transition: all 0.1s linear;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icm:hover::before {
+  opacity: 0;
+}
+
+body:has(.icm:hover) {
+  background-color: black;
+}
+
+.icm:hover > .logo {
+  filter: invert(0);
+  position: absolute;
+  top: auto;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.5);
+  opacity: 1;
+  border: none;
+  transition: all 0.1s ease-in-out;
+  animation: mid-transition-in 0.2s ease-in-out;
+}
+
+@keyframes mid-transition-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.icm:hover::before {
+  -webkit-text-fill-color: #fff;
+}
